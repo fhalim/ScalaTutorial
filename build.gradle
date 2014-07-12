@@ -1,0 +1,23 @@
+apply plugin: 'application'
+apply plugin: 'scala'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:2.11.1"
+    compile fileTree(dir: 'lib', include: '*.jar')
+
+    testCompile 'org.scalatest:scalatest_2.11:2.2.0'
+}
+
+sourceSets {
+    test {
+        scala {
+            srcDirs = ['src/test/scala']
+        }
+    }
+}
