@@ -9,6 +9,9 @@ repositories {
 
 dependencies {
     compile "org.scala-lang:scala-library:2.11.1"
+    compile 'org.springframework.boot:spring-boot-starter-web:1.1.4.RELEASE'
+    compile 'com.jsuereth:scala-arm_2.11:1.4'
+
     compile fileTree(dir: 'lib', include: '*.jar')
 
     testCompile 'org.scalatest:scalatest_2.11:2.2.0'

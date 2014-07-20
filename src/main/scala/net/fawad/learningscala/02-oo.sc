@@ -87,3 +87,37 @@ object NewHitCounter extends Counter with Loggable {
 
 NewHitCounter.incrementAndGet
 NewHitCounter.incrementAndGet
+
+
+
+
+
+// Implicit conversions
+
+import java.text.SimpleDateFormat
+
+val dateFormat = new SimpleDateFormat("yyyy-MM-dd")
+val startDate = dateFormat.parse("2012-01-01")
+val endDate = dateFormat.parse("2013-01-01")
+println((endDate.getTime - startDate.getTime) / (60 * 60 * 1000))
+
+
+
+
+
+
+
+import java.util.Date
+class MathableDate(val date:Date) {
+  def -(otherDate:MathableDate) = (date.getTime - otherDate.date.getTime) / (60 * 60 * 1000)
+}
+
+println(new MathableDate(endDate) - new MathableDate(startDate))
+
+
+
+
+
+
+implicit def toMathable(value:String) = new MathableDate(dateFormat.parse(value))
+println("2013-01-01" - "2012-01-01")

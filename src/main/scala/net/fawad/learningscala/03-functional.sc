@@ -1,3 +1,5 @@
+
+
 def square(x: Int) = (x, x * x)     // Functions can return multiple values
 val numberAndSquare = square(12)
 val (num, squaredValue) = numberAndSquare   // Can destructure return value
@@ -48,4 +50,34 @@ def repr2(n:Node):String = n match {
 
 println(repr2(Tree(EmptyableLeaf(Some(12)), Tree(EmptyableLeaf(None), EmptyableLeaf(Some(22))))))
 
+// For comprehension
+for(num <- 0 until 5; denom <- 0 until 3; result <- safeDivide(num, denom)) {
+  println(result)
+}
 
+def safeDivide(num: Double, denom:Double) = if(denom == 0) None else Some(num /denom)
+
+safeDivide(15, 3)
+safeDivide(3, 0)
+
+for(num <- 0 until 5; denom <- 0 until 3) {
+  println(num /denom)
+}
+
+
+// Unification
+
+def triple(value:Int) = value * 3
+triple(4)
+
+import scala.beans.BeanProperty
+object mytriple {
+  @BeanProperty var counter = 0
+  def apply(value:Int) = {
+    counter = counter + 1
+    value * 3
+  }
+}
+mytriple(4)
+mytriple(3)
+mytriple.getCounter

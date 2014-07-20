@@ -2,6 +2,9 @@ Outline
 =======
 
 - Introduction
+  - Simple
+    - Functions - Abstraction in the small
+    - Objects and traits - Abstraction in the large
   - Background
   - Runtime
   - Where it can be run
@@ -20,6 +23,9 @@ Outline
   - BeanProperties/BeanInfo
   - Type specialization
 - Functional
+  - Case classes
+  - Pattern matching
+    - Need extractor (unapply)
 - Collections
   - [Collections Performance Characteristics](http://docs.scala-lang.org/overviews/collections/performance-characteristics.html)
 - Conclusion
