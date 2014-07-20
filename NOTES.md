@@ -7,8 +7,8 @@ Outline
   - Where it can be run
     - Scripting language
     - Compiled to JAR
-    - Web apps - WAR
-    - Mobile app on Android
+    - Web apps
+    - [Android](https://github.com/pocorall/scaloid)
     - [Javascript](http://www.scala-js.org/)
         - example  scala-js-example-app/index-fastopt.html
   - Build Tools
@@ -21,6 +21,7 @@ Outline
   - Type specialization
 - Functional
 - Collections
+  - [Collections Performance Characteristics](http://docs.scala-lang.org/overviews/collections/performance-characteristics.html)
 - Conclusion
   - Learning Resources
     - ScalaDoc

@@ -55,3 +55,35 @@ val bob5 = new Person4("bob", "123")
 val bob6 = new Person4("bob", "123")
 
 bob5 == bob6 // Denied!
+
+object HitCounter {
+  var value = 0
+  println("I just got created")
+  def incrementAndGet = {
+    value = value + 1
+    println(s"Logged: Incremented to ${value}")
+    value
+  }
+}
+println(s"Current value ${HitCounter.incrementAndGet}")
+println(s"Current value ${HitCounter.incrementAndGet}")
+
+trait Counter {
+  var value = 0
+  def increment() = value = value + 1
+  def get = value
+}
+trait Loggable {
+  def log(message:String) = println(s"Logged: ${message}")
+}
+
+object NewHitCounter extends Counter with Loggable {
+  def incrementAndGet = {
+    increment()
+    log(s"Updated to value ${value}")
+    get
+  }
+}
+
+NewHitCounter.incrementAndGet
+NewHitCounter.incrementAndGet
