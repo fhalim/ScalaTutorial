@@ -116,3 +116,11 @@ println(new MathableDate(endDate) - new MathableDate(startDate))
 
 implicit def toMathable(value:String) = new MathableDate(dateFormat.parse(value))
 println("2013-01-01" - "2012-01-01")
+
+
+
+
+// Specialization
+class MyContainer[@specialized T](value:T){
+
+}
