@@ -7,10 +7,13 @@ repositories {
     mavenCentral()
 }
 
+mainClassName = 'net.fawad.learningscala.Main'
+
 dependencies {
     compile "org.scala-lang:scala-library:2.11.1"
     compile 'org.springframework.boot:spring-boot-starter-web:1.1.4.RELEASE'
     compile 'com.jsuereth:scala-arm_2.11:1.4'
+    compile 'com.hazelcast:hazelcast-client:3.2.4'
 
     compile fileTree(dir: 'lib', include: '*.jar')
 
