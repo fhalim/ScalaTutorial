@@ -1,10 +1,7 @@
-
-
 def square(x: Int) = (x, x * x)     // Functions can return multiple values
 val numberAndSquare = square(12)
 val (num, squaredValue) = numberAndSquare   // Can destructure return value
 def add(x:Int, y:Int) = x + y
-
 // Functions can take functions
 def applyTwice(value: Int, func: (Int, Int) => Int) = func(value, value)
 
@@ -28,11 +25,29 @@ double(5)
 def double2 = cMul(2) _
 double2(6)
 
+// Recursion
+
+import scala.math.BigInt
+
+
+def fac(number:BigInt):BigInt =
+  if (number == 0) BigInt(1)
+  else number * fac(number - 1)
+fac(30)
+
+import scala.annotation.tailrec
+def fac2(number:BigInt):BigInt = {
+  @tailrec def facInner(accumulator:BigInt, value:BigInt):BigInt =
+    if(value == 0) accumulator
+    else facInner(value * accumulator, value - 1)
+  facInner(1, number)
+}
+fac2(10000)
+//fac(10000)
 // Pattern matching
 abstract class Node
 case class Tree(left:Node, right:Node) extends Node
 case class Leaf(value:Int) extends Node
-
 def repr(n:Node):String = n match {
   case Leaf(v) => s"{Leaf: $v}}"
   case Tree(left, right) => s"{Left: ${repr(left)}, right: ${repr{right}})"
@@ -41,7 +56,6 @@ def repr(n:Node):String = n match {
 println(repr(Tree(Leaf(12), Tree(Leaf(14), Leaf(22)))))
 
 case class EmptyableLeaf(value:Option[Int]) extends Node
-
 def repr2(n:Node):String = n match {
   case EmptyableLeaf(Some(v)) => s"{Leaf: $v}}"
   case EmptyableLeaf(None) => s"{Leaf: Empty}}"
@@ -56,20 +70,15 @@ for(num <- 0 until 5; denom <- 0 until 3; result <- safeDivide(num, denom)) {
 }
 
 def safeDivide(num: Double, denom:Double) = if(denom == 0) None else Some(num /denom)
-
 safeDivide(15, 3)
 safeDivide(3, 0)
-
 for(num <- 0 until 5; denom <- 0 until 3) {
   println(num /denom)
 }
-
-
 // Unification
 
 def triple(value:Int) = value * 3
 triple(4)
-
 import scala.beans.BeanProperty
 object mytriple {
   @BeanProperty var counter = 0

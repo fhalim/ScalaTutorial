@@ -1,8 +1,3 @@
-
-
-
-// Phone number is unset
-
 // Java style class
 class Person {
   var name: String = ""
