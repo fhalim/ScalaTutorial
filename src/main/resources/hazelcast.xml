@@ -1,0 +1,12 @@
+<hazelcast>
+    <network>
+        <interfaces enabled="true">
+            <interface>127.0.0.1</interface>
+        </interfaces>
+        <join>
+            <tcp-ip enabled="true">
+                <interface>127.0.0.1:5701</interface>
+            </tcp-ip>
+        </join>
+    </network>
+</hazelcast>
