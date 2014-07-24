@@ -1,10 +1,10 @@
 package net.fawad.learningscala
 
 import java.util.concurrent.CountDownLatch
+import javax.annotation.Resource
 
 import com.hazelcast.config.Config
 import com.hazelcast.core.{Hazelcast, IAtomicLong}
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.config.BeanDefinition
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
@@ -34,8 +34,7 @@ object Main {
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @RequestMapping(Array("/api"))
 class Controllers {
-  @(Autowired @setter)
-  var hitCounter:IAtomicLong = _
+  @(Resource @setter)(name = "hitCount") var hitCounter:IAtomicLong = _
   @RequestMapping(Array("/hello"))
   @ResponseBody def sayHello = "Hello world " + hitCounter.addAndGet(1)
 }
