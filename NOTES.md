@@ -29,6 +29,9 @@ Outline
 - Collections
   - [Collections Performance Characteristics](http://docs.scala-lang.org/overviews/collections/performance-characteristics.html)
 - Conclusion
+  - More stuff
+    - Typeclasses
+    - Macros
   - Learning Resources
     - ScalaDoc
     - Scala for the impatient
