@@ -10,6 +10,12 @@ myNumbers(1)
 val moreNumbers = Seq(2, 3, 4)
 val moreNumbers2 = Iterable(2, 3, 4)
 
+def snd[T](coll:Seq[T]) = coll match {
+  case _ +: v +: tail => Some(v)
+  case _ => None
+}
+
+snd(myNumbers)
 
 val myNumbers2 = 1 :: 2 :: 3 :: Nil
 myNumbers2 ++ Vector(4, 5, 6)
@@ -44,7 +50,7 @@ def slowDoubler = (x:Int) => {
 myNumbers map slowDoubler
 myNumbers.par.map(slowDoubler)
 
-val timesTable = for(x <- myNumbers; y <- myNumbers) yield (x, y, x * y)
+val products = for(x <- myNumbers; y <- myNumbers if y < x) yield (x, y, x * y)
 
 
 

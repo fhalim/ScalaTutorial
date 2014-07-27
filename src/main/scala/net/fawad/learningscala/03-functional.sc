@@ -1,6 +1,20 @@
+var lastValue = 0
+def setValue(value:Int) = {
+  lastValue = value
+  value
+}
+
+setValue(12)
+lastValue
+setValue(3)
+lastValue
+
 def square(x: Int) = (x, x * x)     // Functions can return multiple values
 val numberAndSquare = square(12)
 val (num, squaredValue) = numberAndSquare   // Can destructure return value
+
+
+
 def add(x:Int, y:Int) = x + y
 // Functions can take functions
 def applyTwice(value: Int, func: (Int, Int) => Int) = func(value, value)
@@ -11,7 +25,7 @@ addToSelf(12)
 // Generics are great
 def applyTwiceGeneric[T](value: T, func: (T, T) => T) = func(value, value)
 
-// So are tuples
+
 def addToSelf2(value: Int) = applyTwiceGeneric(value, add)
 
 // Currying
