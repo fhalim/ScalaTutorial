@@ -31,6 +31,8 @@ jack.phone = "abc"
 
 // Also can't do jack.setPhone("12")
 
+
+
 import scala.beans.BeanProperty
 
 class Person3(@BeanProperty val name: String, @BeanProperty var phone: String)
@@ -43,13 +45,13 @@ bob2.phone
 val bob3 = new Person3("bob", "123")
 val bob4 = new Person3("bob", "123")
 
-bob3 == bob4 // Denied!
+bob3 == bob4
 
 case class Person4(@BeanProperty val name: String, @BeanProperty var phone: String)
 val bob5 = new Person4("bob", "123")
 val bob6 = new Person4("bob", "123")
 
-bob5 == bob6 // Denied!
+bob5 == bob6
 
 object HitCounter {
   var value = 0
@@ -63,11 +65,14 @@ object HitCounter {
 println(s"Current value ${HitCounter.incrementAndGet}")
 println(s"Current value ${HitCounter.incrementAndGet}")
 
+
 trait Counter {
   var value = 0
   def increment() = value = value + 1
   def get = value
 }
+
+
 trait Loggable {
   def log(message:String) = println(s"Logged: ${message}")
 }

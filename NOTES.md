@@ -11,8 +11,11 @@ Outline
     - Can be used from tiny to large systems.
     - Flexible syntax - can be used to make internal DSLs
     - Combination of OO and functional
-  - Background
-  - Runtime
+  - Who uses it
+    - Twitter
+    - Foursquare
+    - LinkedIn
+    - eHarmony
   - Where it can be run
     - Scripting language
     - Compiled to JAR
@@ -133,16 +136,22 @@ Outline
 - Conclusion
   - More stuff
     - Typeclasses
+    - Higher kinded types
+        - Allow more than one level of type variables
+        - For instance Container as a kind for types like List[T], Vector[T] on which operations can be defined
+            without defining the actual type it's polymorphic on
     - Macros
   - Learning Resources
-    - ScalaDoc
-    - Scala for the impatient
-    - Programming In Scala
-    - Functional Programming In Scala
+    - [ScalaDoc](http://docs.scala-lang.org/index.html)
+    - [Scala for the impatient](http://www.horstmann.com/scala/index.html)
+    - [Programming In Scala](http://www.artima.com/shop/programming_in_scala_2ed)
+    - [Twitter Scala School](https://twitter.github.io/scala_school/)
+    - [Functional Programming In Scala](http://www.manning.com/bjarnason/)
   - Examples of DSLs
-    - Scalding
-    - Akka
-    - SBT
+    - [Scalding](https://github.com/twitter/scalding)
+    - [Akka](http://akka.io/)
+    - [SBT](http://www.scala-sbt.org/)
   - Downsides
     - Code can be as hard to comprehend as needed
     - DSLs reflect on the base language
+    - Slow??

@@ -1,3 +1,4 @@
+// Functions are closures
 var lastValue = 0
 def setValue(value:Int) = {
   lastValue = value
@@ -9,12 +10,21 @@ lastValue
 setValue(3)
 lastValue
 
+
+
+
+
+
+// Tuples
 def square(x: Int) = (x, x * x)     // Functions can return multiple values
 val numberAndSquare = square(12)
 val (num, squaredValue) = numberAndSquare   // Can destructure return value
 
 
 
+
+
+// Higher order functions
 def add(x:Int, y:Int) = x + y
 // Functions can take functions
 def applyTwice(value: Int, func: (Int, Int) => Int) = func(value, value)
@@ -22,11 +32,22 @@ def applyTwice(value: Int, func: (Int, Int) => Int) = func(value, value)
 def addToSelf(value: Int) = applyTwice(value, add)
 addToSelf(12)
 
+
+
 // Generics are great
 def applyTwiceGeneric[T](value: T, func: (T, T) => T) = func(value, value)
 
-
 def addToSelf2(value: Int) = applyTwiceGeneric(value, add)
+
+
+
+
+// Can compose functions to create new functions
+val doubleAndSquare = square  _ compose addToSelf2 _
+doubleAndSquare(3)
+
+
+
 
 // Currying
 def cMul(x: Int)(y: Int) = x * y
@@ -39,8 +60,11 @@ double(5)
 def double2 = cMul(2) _
 double2(6)
 
-// Recursion
 
+
+
+
+// Recursion
 import scala.math.BigInt
 
 
@@ -49,6 +73,8 @@ def fac(number:BigInt):BigInt =
   else number * fac(number - 1)
 fac(30)
 
+
+
 import scala.annotation.tailrec
 def fac2(number:BigInt):BigInt = {
   @tailrec def facInner(accumulator:BigInt, value:BigInt):BigInt =
@@ -56,8 +82,16 @@ def fac2(number:BigInt):BigInt = {
     else facInner(value * accumulator, value - 1)
   facInner(1, number)
 }
+
 fac2(10000)
 //fac(10000)
+
+
+
+
+
+
+
 // Pattern matching
 abstract class Node
 case class Tree(left:Node, right:Node) extends Node
@@ -69,7 +103,9 @@ def repr(n:Node):String = n match {
 
 println(repr(Tree(Leaf(12), Tree(Leaf(14), Leaf(22)))))
 
+// Options
 case class EmptyableLeaf(value:Option[Int]) extends Node
+
 def repr2(n:Node):String = n match {
   case EmptyableLeaf(Some(v)) => s"{Leaf: $v}}"
   case EmptyableLeaf(None) => s"{Leaf: Empty}}"
@@ -83,12 +119,16 @@ for(num <- 0 until 5; denom <- 0 until 3; result <- safeDivide(num, denom)) {
   println(result)
 }
 
+
+// Options are monads
 def safeDivide(num: Double, denom:Double) = if(denom == 0) None else Some(num /denom)
 safeDivide(15, 3)
 safeDivide(3, 0)
 for(num <- 0 until 5; denom <- 0 until 3) {
-  println(num /denom)
+  println(num /d enom)
 }
+
+
 // Unification
 
 def triple(value:Int) = value * 3
