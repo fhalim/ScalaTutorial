@@ -2,3 +2,6 @@
 .gradle/
 out/
 build/
+classes/
+gradle/
+*.swp

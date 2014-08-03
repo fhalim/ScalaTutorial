@@ -7,9 +7,18 @@ myNumbers.reverse
 myNumbers.apply(1)
 myNumbers(1)
 
+
+
+
+// Factories at all levels
 val moreNumbers = Seq(2, 3, 4)
 val moreNumbers2 = Iterable(2, 3, 4)
 
+
+
+
+
+// Pattern matching on collections
 def snd[T](coll:Seq[T]) = coll match {
   case _ +: v +: tail => Some(v)
   case _ => None
@@ -17,6 +26,10 @@ def snd[T](coll:Seq[T]) = coll match {
 
 snd(myNumbers)
 
+
+
+
+// Constructing more collections
 val myNumbers2 = 1 :: 2 :: 3 :: Nil
 myNumbers2 ++ Vector(4, 5, 6)
 1 +: myNumbers2
@@ -39,9 +52,19 @@ myNumbers filter odd
 
 myNumbers.partition(odd)
 
+
+
+
+
+// Maps
 val ages = Map("Tom" -> 21, "Dick" -> 15, "Harry" -> 3, "Bob" -> 45)
 ages.filter { case (k, v) => v >= 21}
 
+
+
+
+
+// Parallel collections
 def slowDoubler = (x:Int) => {
   Thread.sleep(500)
   x * 2

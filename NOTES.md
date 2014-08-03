@@ -15,7 +15,6 @@ Outline
     - Twitter
     - Foursquare
     - LinkedIn
-    - eHarmony
   - Where it can be run
     - Scripting language
     - Compiled to JAR
@@ -154,4 +153,7 @@ Outline
   - Downsides
     - Code can be as hard to comprehend as needed
     - DSLs reflect on the base language
+    - ABI
+    - Ask Paul Philips
+    - Some libraries are not well done
     - Slow??

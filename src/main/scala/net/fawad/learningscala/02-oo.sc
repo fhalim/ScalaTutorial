@@ -20,6 +20,12 @@ bob.setName("Bob")
 bob.getName
 bob.phone
 
+
+
+
+
+
+// constructor
 class Person2(val name: String, var phone: String) {
 
 }
@@ -33,6 +39,12 @@ jack.phone = "abc"
 
 
 
+
+
+
+
+
+// BeanProperties
 import scala.beans.BeanProperty
 
 class Person3(@BeanProperty val name: String, @BeanProperty var phone: String)
@@ -47,11 +59,26 @@ val bob4 = new Person3("bob", "123")
 
 bob3 == bob4
 
+
+
+
+
+
+
+// Case class
 case class Person4(@BeanProperty val name: String, @BeanProperty var phone: String)
 val bob5 = new Person4("bob", "123")
 val bob6 = new Person4("bob", "123")
 
 bob5 == bob6
+val updatedBob = bob5.copy(name = "Robert")
+
+
+
+
+
+
+// Companion objects/singletons
 
 object HitCounter {
   var value = 0
@@ -65,6 +92,10 @@ object HitCounter {
 println(s"Current value ${HitCounter.incrementAndGet}")
 println(s"Current value ${HitCounter.incrementAndGet}")
 
+
+
+
+// Decomposing to traits
 
 trait Counter {
   var value = 0
@@ -88,6 +119,17 @@ object NewHitCounter extends Counter with Loggable {
 NewHitCounter.incrementAndGet
 NewHitCounter.incrementAndGet
 
+
+
+
+
+// Structural typing
+def printName(thingWithName:{def getName():String})
+{
+  println(thingWithName.getName())
+}
+printName(bob4)
+printName(bob5)
 
 
 

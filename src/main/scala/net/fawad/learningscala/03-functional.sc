@@ -74,7 +74,7 @@ def fac(number:BigInt):BigInt =
 fac(30)
 
 
-
+// Tailcall
 import scala.annotation.tailrec
 def fac2(number:BigInt):BigInt = {
   @tailrec def facInner(accumulator:BigInt, value:BigInt):BigInt =
