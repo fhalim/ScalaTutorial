@@ -20,6 +20,7 @@ bob.setName("Bob")
 bob.getName
 bob.phone
 
+val anotherBob = new Person{name = "bobby"; phone = "5678"}
 
 
 
@@ -36,9 +37,6 @@ jack.phone = "abc"
 //    jack.name = "pete"
 
 // Also can't do jack.setPhone("12")
-
-
-
 
 
 
@@ -63,8 +61,6 @@ bob3 == bob4
 
 
 
-
-
 // Case class
 case class Person4(@BeanProperty val name: String, @BeanProperty var phone: String)
 val bob5 = new Person4("bob", "123")
@@ -72,7 +68,6 @@ val bob6 = new Person4("bob", "123")
 
 bob5 == bob6
 val updatedBob = bob5.copy(name = "Robert")
-
 
 
 
@@ -91,6 +86,7 @@ object HitCounter {
 }
 println(s"Current value ${HitCounter.incrementAndGet}")
 println(s"Current value ${HitCounter.incrementAndGet}")
+
 
 
 
@@ -134,6 +130,7 @@ printName(bob5)
 
 
 
+
 // Implicit conversions
 
 import java.text.SimpleDateFormat
@@ -142,10 +139,6 @@ val dateFormat = new SimpleDateFormat("yyyy-MM-dd")
 val startDate = dateFormat.parse("2012-01-01")
 val endDate = dateFormat.parse("2013-01-01")
 println((endDate.getTime - startDate.getTime) / (60 * 60 * 1000))
-
-
-
-
 
 
 
@@ -158,11 +151,26 @@ println(new MathableDate(endDate) - new MathableDate(startDate))
 
 
 
-
-
-
 implicit def toMathable(value:String) = new MathableDate(dateFormat.parse(value))
 println("2013-01-01" - "2012-01-01")
+
+
+
+
+// Parameters can be implicit as well
+def pause(implicit delay:Int) {
+  println(s"Pausing for ${delay}ms...")
+  Thread.sleep(delay)
+}
+println("Doing some work")
+pause(500)
+println("Doing some more work")
+
+implicit val delay = 200
+println("Doing some work")
+pause
+println("Doing some more work")
+
 
 
 

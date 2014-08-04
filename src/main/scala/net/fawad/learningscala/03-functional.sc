@@ -24,6 +24,7 @@ val (num, squaredValue) = numberAndSquare   // Can destructure return value
 
 
 
+
 // Higher order functions
 def add(x:Int, y:Int) = x + y
 // Functions can take functions
@@ -31,6 +32,9 @@ def applyTwice(value: Int, func: (Int, Int) => Int) = func(value, value)
 
 def addToSelf(value: Int) = applyTwice(value, add)
 addToSelf(12)
+
+
+
 
 
 
@@ -42,9 +46,13 @@ def addToSelf2(value: Int) = applyTwiceGeneric(value, add)
 
 
 
+
+
 // Can compose functions to create new functions
 val doubleAndSquare = square  _ compose addToSelf2 _
 doubleAndSquare(3)
+
+
 
 
 
@@ -64,7 +72,9 @@ double2(6)
 
 
 
+
 // Recursion
+
 import scala.math.BigInt
 
 
@@ -91,7 +101,6 @@ fac2(10000)
 
 
 
-
 // Pattern matching
 abstract class Node
 case class Tree(left:Node, right:Node) extends Node
@@ -102,6 +111,11 @@ def repr(n:Node):String = n match {
 }
 
 println(repr(Tree(Leaf(12), Tree(Leaf(14), Leaf(22)))))
+
+
+
+
+
 
 // Options
 case class EmptyableLeaf(value:Option[Int]) extends Node
@@ -114,19 +128,34 @@ def repr2(n:Node):String = n match {
 
 println(repr2(Tree(EmptyableLeaf(Some(12)), Tree(EmptyableLeaf(None), EmptyableLeaf(Some(22))))))
 
+
+
+
+
+
 // For comprehension
 for(num <- 0 until 5; denom <- 0 until 3; result <- safeDivide(num, denom)) {
   println(result)
 }
 
 
+
+
+
+
 // Options are monads
 def safeDivide(num: Double, denom:Double) = if(denom == 0) None else Some(num /denom)
+
 safeDivide(15, 3)
 safeDivide(3, 0)
+
 for(num <- 0 until 5; denom <- 0 until 3) {
   println(num /d enom)
 }
+
+
+
+
 
 
 // Unification

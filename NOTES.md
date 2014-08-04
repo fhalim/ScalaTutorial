@@ -2,7 +2,7 @@ Outline
 =======
 
 - Introduction
-  - Terse
+  - We're writing too much code
   - Simple
       - Functions - Abstraction in the small
       - Objects and traits - Abstraction in the large
@@ -151,9 +151,8 @@ Outline
     - [Akka](http://akka.io/)
     - [SBT](http://www.scala-sbt.org/)
   - Downsides
+    - Slow?
     - Code can be as hard to comprehend as needed
     - DSLs reflect on the base language
     - ABI
-    - Ask Paul Philips
-    - Some libraries are not well done
-    - Slow??
+    - [Ask Paul Philips](https://www.youtube.com/watch?v=uiJycy6dFSQ)
