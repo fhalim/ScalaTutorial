@@ -35,11 +35,14 @@ myNumbers2 ++ Vector(4, 5, 6)
 1 +: myNumbers2
 myNumbers :+ 1
 
+
+// Folding (accumulation)
 myNumbers.foldLeft(0)((x, y) => x + y)
 
 (0 /: myNumbers) (_ + _)
 
 
+// Mapping
 def double(x: Int) = x * 2
 myNumbers.map(double)
 
@@ -50,6 +53,8 @@ def odd(x: Int) = x % 2 == 1
 
 myNumbers filter odd
 
+
+// Partition
 myNumbers.partition(odd)
 
 
@@ -72,6 +77,11 @@ def slowDoubler = (x:Int) => {
 
 myNumbers map slowDoubler
 myNumbers.par.map(slowDoubler)
+
+
+
+
+// Can use for comprehensions to compose collections
 
 val products = for(x <- myNumbers; y <- myNumbers if y < x) yield (x, y, x * y)
 
